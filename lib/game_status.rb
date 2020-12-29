@@ -35,9 +35,7 @@ def won?(board)
 end
 
 def full?(board)
-  board.all? do |box|
-    box == "X" || box == "O"
-  end
+  board.all? { |i| i == "X" || i == "O" }
 end
 
 def draw?(board)
