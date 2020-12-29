@@ -10,33 +10,28 @@ WIN_COMBINATIONS =[
 ]
 
 def won?(board)
-  WIN_COMBINATIONS.find do |win_combination|
-    win_index_1 = win_combination[0]
-    win_index_1 = win_combination[1]
-    win_index_1 = win_combination[2]
-    win_index_1 = win_combination[3]
-    win_index_1 = win_combination[4]
-    win_index_1 = win_combination[5]
-    win_index_1 = win_combination[6]
-    win_index_1 = win_combination[7]
+  WIN_COMBINATIONS.each do |combo|
+    win_pos1 = combo[0]
+    win_pos2 = combo[1]
+    win_pos3 = combo[2]
 
-    position_1 = board[win_index_1]
-    position_2 = board[win_index_2]
-    position_3 = board[win_index_3]
-    position_4 = board[win_index_4]
-    position_5 = board[win_index_5]
-    position_6 = board[win_index_6]
-    position_7 = board[win_index_7]
-    position_8 = board[win_index_8]
+    position1 = board[win_pos1]
+    position2 = board[win_pos2]
+    position3 = board[win_pos3]
 
-    if position_1 == "X" && position_2 == "X" && position_3 == "X"
-      return win_combinations
-    else
-      false
+    if (
+      position1 == "X" &&
+      position2 == "X" &&
+      position3 == "X"
+      ) || (
+        position1 == "O" &&
+        position2 == "O" &&
+        position3 == "O"
+      )
+      return combo
     end
-
   end
-
+  return false
 end
 
 def full?(board)
